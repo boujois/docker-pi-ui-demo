@@ -1,0 +1,11 @@
+version: "3"
+services:
+  demo-ui:
+    build: .
+    restart: always
+    ports:
+      - "8093:80"
+    expose:
+      - '80'
+    volumes:
+      - ./src:/var/www/html/

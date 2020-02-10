@@ -1,0 +1,149 @@
+<html>
+<head>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="semantic-ui/semantic.min.js"></script>
+  <link rel="stylesheet" href="semantic-ui/semantic.min.css"/>
+
+  <script language="javascript">
+    function toggleMasterSwitch(){
+      var checked=$("#masterSwitch").is(":checked");
+      if(checked){
+        $("#masterSwitchLabel").text("System On");
+      }
+      else{
+        $("#masterSwitchLabel").text("System Off");
+      }
+    }
+
+    var pool_target=35;
+    var room_target=30;
+
+    var pool_actual=35;
+    var room_actual=29;
+
+    function setTargetTemps(){
+      $("#pool_target_cell").html(pool_target+" &deg;C");
+      $("#room_target_cell").html(room_target+" &deg;C");
+
+      // set the background colour based on the target vs actuals
+      if(pool_target>pool_actual){
+        $("#pool_target_cell").addClass("heating");
+        $("#pool_target_cell").removeClass("cooling");
+      }
+      else if(pool_target<pool_actual){
+        $("#pool_target_cell").removeClass("heating");
+        $("#pool_target_cell").addClass("cooling");
+      }
+      else if(pool_target==pool_actual){
+        $("#pool_target_cell").removeClass("heating");
+        $("#pool_target_cell").removeClass("cooling");
+      }
+
+      if(room_target>room_actual){
+        $("#room_target_cell").addClass("heating");
+        $("#room_target_cell").removeClass("cooling");
+      }
+      else if(room_target<room_actual){
+        $("#room_target_cell").removeClass("heating");
+        $("#room_target_cell").addClass("cooling");
+      }
+      else if(room_target==room_actual){
+        $("#room_target_cell").removeClass("heating");
+        $("#room_target_cell").removeClass("cooling");
+      }
+    }
+
+    function increaseTemp(thing){
+      if(thing=="pool"){
+        pool_target++;
+      }
+      else if(thing=="room"){
+        room_target++;
+      }
+      setTargetTemps();
+    }
+
+    function decreaseTemp(thing){
+      if(thing=="pool"){
+        pool_target--;
+      }
+      else if(thing=="room"){
+        room_target--;
+      }
+      setTargetTemps();
+    }
+
+    $(document).ready(function() {
+      console.log( "ready!" );
+      setTargetTemps();
+    });
+
+  </script>
+
+
+  <style>
+    .heating{
+      background-color:#f54029;
+      color:#ffffff;
+    }
+    .cooling{
+      background-color:#2288ee;
+      color:#ffffff;
+    }
+    table, th, td{
+      font-size:16px;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="ui container">
+
+    <h1>Semantic UI Demo</h1>
+
+    <div class="ui grid">
+      <div class="four wide column"></div>
+      <div class="four wide column"></div>
+      <div class="four wide column"></div>
+      <div class="four wide column right aligned">
+        <div class="ui toggle checkbox">
+          <input id="masterSwitch" type="checkbox" checked name="public" onclick="toggleMasterSwitch();">
+          <label id="masterSwitchLabel">System On</label>
+        </div>
+      </div>
+    </div>
+
+
+
+    <table class="ui celled definition table">
+      <thead>
+        <tr class="center aligned">
+          <th class="five wide"></th>
+          <th colspan="2" class="four wide">Current</th>
+          <th class="three wide">Target</th>
+          <th colspan="2" class="four wide">Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="center aligned">
+          <td>Room</td>
+          <td>29 &deg;C</td>
+          <td>65 &deg;F</td>
+          <td id="room_target_cell"></td>
+          <td><button class="ui fluid big blue button" onclick="decreaseTemp('room')">-</button></td>
+          <td><button class="ui fluid big red button" onclick="increaseTemp('room')">+</button></td>
+        </tr>
+
+        <tr class="center aligned">
+          <td>Pool</td>
+          <td>35 &deg;C</td>
+          <td>72 &deg;F</td>
+          <td id="pool_target_cell"></td>
+          <td><button class="ui fluid big blue button" onclick="decreaseTemp('pool')">-</button></td>
+          <td><button class="ui fluid big red button" onclick="increaseTemp('pool')">+</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

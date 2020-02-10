@@ -1,0 +1,87 @@
+<html>
+<head>
+  <title>Demo UI</title>
+</head>
+<body>
+  <h1>Basic HTML Demo</h1>
+
+
+    <table border="1" cellpadding="10">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Temp &deg;C</th>
+          <th>Temp &deg;F</th>
+          <th>Target &deg;C</th>
+          <th colspan="2">Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="center">Room</td>
+          <td align="center">29</td>
+          <td align="center">65</td>
+          <td align="center">30</td>
+          <td align="center"><button>&uarr; Up</button></td>
+          <td align="center"><button>&darr; Down</button></td>
+        </tr>
+
+        <tr>
+          <td align="center">Pool</td>
+          <td align="center">35</td>
+          <td align="center">72</td>
+          <td align="center">35</td>
+          <td align="center"><button>&uarr; Up</button></td>
+          <td align="center"><button>&darr; Down</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br/><br/>
+    <hr/>
+    <h1>With Basic CSS</h1>
+
+    <style>
+      button.styled {
+        width:100px;
+        height:50px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    </style>
+
+    <table border="1" cellpadding="10" style="border-collapse:collapse;font-family:Arial">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Temp &deg;C</th>
+          <th style="background-color:#eee">Temp &deg;F</th>
+          <th>Target &deg;C</th>
+          <th colspan="2">Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="center">Room</td>
+          <td align="center" style="background-color:skyblue;">29</td>
+          <td align="center" style="background-color:#eee">65</td>
+          <td align="center">30</td>
+          <td align="center"><button class="styled">&uarr; Up</button></td>
+          <td align="center"><button class="styled">&darr; Down</button></td>
+        </tr>
+
+        <tr>
+          <td align="center">Pool</td>
+          <td align="center">35</td>
+          <td align="center" style="background-color:#eee">72</td>
+          <td align="center" style="background-color:maroon;color:white">35</td>
+          <td align="center"><button class="styled">&uarr; Up</button></td>
+          <td align="center"><button class="styled">&darr; Down</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+</body>
+</html>
