@@ -91,7 +91,7 @@
       color:#ffffff;
     }
     table, th, td{
-      font-size:16px;
+      font-size:14px;
     }
   </style>
 
@@ -102,7 +102,7 @@
     <h1>Semantic UI Demo</h1>
 
     <div class="ui grid">
-      <div class="four wide column"></div>
+      <div class="three wide column"></div>
       <div class="four wide column"></div>
       <div class="four wide column"></div>
       <div class="four wide column right aligned">
@@ -115,11 +115,11 @@
 
 
 
-    <table class="ui celled definition table">
+    <table class="ui celled definition unstackable table">
       <thead>
         <tr class="center aligned">
           <th class="five wide"></th>
-          <th colspan="2" class="four wide">Current</th>
+          <th colspan="2" class="six wide">Current</th>
           <th class="three wide">Target</th>
           <th colspan="2" class="four wide">Change</th>
         </tr>
@@ -127,17 +127,17 @@
       <tbody>
         <tr class="center aligned">
           <td>Room</td>
-          <td>29 &deg;C</td>
-          <td>65 &deg;F</td>
+          <td>29&deg;C</td>
+          <td>65&deg;F</td>
           <td id="room_target_cell"></td>
-          <td><button class="ui fluid big blue button" onclick="decreaseTemp('room')">-</button></td>
-          <td><button class="ui fluid big red button" onclick="increaseTemp('room')">+</button></td>
+          <td><button class="ui fitted fluid big blue button" onclick="decreaseTemp('room')">-</button></td>
+          <td><button class="ui fitted fluid big red button" onclick="increaseTemp('room')">+</button></td>
         </tr>
 
         <tr class="center aligned">
           <td>Pool</td>
-          <td>35 &deg;C</td>
-          <td>72 &deg;F</td>
+          <td>35&deg;C</td>
+          <td>72&deg;F</td>
           <td id="pool_target_cell"></td>
           <td><button class="ui fluid big blue button" onclick="decreaseTemp('pool')">-</button></td>
           <td><button class="ui fluid big red button" onclick="increaseTemp('pool')">+</button></td>
